@@ -1,0 +1,26 @@
+# Optional: run a local PostgreSQL instance matching production, instead of
+# the SQLite default. Not required — the app works fine on SQLite for dev.
+#
+# Usage:
+#   docker compose up -d
+#   Then set in backend/.env:
+#     DATABASE_URL=postgres://dsltracker:dsltracker@localhost:5432/dsltracker
+#   python manage.py migrate
+
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dsltracker
+      POSTGRES_USER: dsltracker
+      POSTGRES_PASSWORD: dsltracker
+    ports:
+      - "5432:5432"
+    volumes:
+      - dsltracker_pgdata:/var/lib/postgresql/data
+
+volumes:
+  dsltracker_pgdata:
