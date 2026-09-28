@@ -1,5 +1,11 @@
 # DSL Customer Technical Records
 
+[![CI/CD](https://github.com/yourname/dsl-tracker/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/yourname/dsl-tracker/actions/workflows/ci-cd.yml)
+
+> Replace `yourname/dsl-tracker` above with your actual GitHub path once
+> you've pushed this repo — GitHub generates this badge automatically from
+> `.github/workflows/ci-cd.yml`; it needs no separate setup.
+
 A field-technician-focused system for tracking **technical** information on
 DSL government subscribers in Lahore: customer/contact details, DSL service
 configuration, and physical copper-pair infrastructure. Deliberately **excludes
@@ -184,6 +190,15 @@ config, and redeploy instructions). If you're replacing an existing site on
 the same PythonAnywhere account, start with that guide's **Section 0** —
 it covers backing up and removing the old web app so the new one can take
 over the domain.
+
+## CI/CD
+
+See [`deploy/ci-cd.md`](deploy/ci-cd.md) for the automated pipeline: every
+push runs the full test suite and builds the frontend (`.github/workflows/ci-cd.yml`),
+and every tested push to `main` publishes a ready-to-run `deploy` branch
+with the compiled frontend baked in — so getting a change live on
+PythonAnywhere is a single command (`bash deploy.sh`), or fully unattended
+via a Scheduled Task.
 
 ## Notes on the boilerplate reference
 

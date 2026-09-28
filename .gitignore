@@ -1,0 +1,10 @@
+# Root-level catch-alls. backend/.gitignore and frontend/.gitignore cover
+# their own specifics (db.sqlite3, node_modules, etc.) — this file covers
+# things that can show up anywhere in the repo regardless of subfolder.
+.DS_Store
+*.pyc
+__pycache__/
+*.log
+.vscode/
+.idea/
+*.swp
